@@ -1,0 +1,31 @@
+
+  <h2 class="mb-4">Case List</h2>
+  <div class="d-flex justify-content-end mb-3">
+    <a class="btn btn-primary" routerLink="/cases/form">Add New Case</a>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Litigation Degree</th>
+        <th>Final Verdict</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let case of cases">
+        <td>{{ case.number }}</td>
+        <td>{{ case.name }}</td>
+        <td>{{ case.year }}</td>
+        <td>{{ case.litigationDegree }}</td>
+        <td>{{ case.finalVerdict }}</td>
+        <td>
+          <a class="btn btn-sm btn-warning" [routerLink]="['/cases/form/', case.id]">Edit</a>
+           <button *ngIf="case.id !== undefined" class="btn btn-sm btn-danger ml-2" (click)="deleteCase(case.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

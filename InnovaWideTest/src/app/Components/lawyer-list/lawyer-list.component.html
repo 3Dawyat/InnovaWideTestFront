@@ -1,0 +1,27 @@
+<h2 class="mb-4">Case List</h2>
+<div class="d-flex justify-content-end mb-3">
+  <a class="btn btn-primary" routerLink="/lawyers/form">Add New Lawyer</a>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Mobile</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lawyer of lawyers">
+      <td>{{ lawyer.name }}</td>
+      <td>{{ lawyer.position }}</td>
+      <td>{{ lawyer.mobile }}</td>
+      <td>{{ lawyer.address }}</td>
+      <td>
+        <a class="btn btn-sm btn-warning" [routerLink]="['/lawyers/form/', lawyer.id]">Edit</a>
+         <button *ngIf="lawyer.id !== undefined" class="btn btn-sm btn-danger ml-2" (click)="deleteLawyer(lawyer.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

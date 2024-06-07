@@ -1,0 +1,27 @@
+<h2 class="mb-4">hearing List</h2>
+<div class="d-flex justify-content-end mb-3">
+  <a class="btn btn-primary" routerLink="/hearings/form">Add New hearing</a>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Case</th>
+      <th>Lawyer</th>
+      <th>Date</th>
+      <th>Decision</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hearing of hearings">
+      <td>{{ hearing.case }}</td>
+      <td>{{ hearing.lawyer }}</td>
+      <td>{{ hearing.date | date:'yyyy-MM-dd' }}</td>
+      <td>{{ hearing.decision }}</td>
+      <td>
+        <a class="btn btn-sm btn-warning" [routerLink]="['/hearings/form/', hearing.id]">Edit</a>
+        <button *ngIf="hearing.id !== undefined" class="btn btn-sm btn-danger ml-2" (click)="deleteHearing(hearing.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(formData)" [formGroup]="formData">
+    <div class="form-group">
+      <label>Case</label>
+      <select class="form-control" formControlName="caseId">
+        <option [value]="object.id" *ngFor='let object of cases'>{{object.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Lawyer</label>
+      <select class="form-control" formControlName="lawyerId">
+        <option [value]="object.id" *ngFor='let object of lawyers'>{{object.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" class="form-control" required formControlName="date" [value]="date | date:'yyyy-MM-dd'">
+    </div>
+    <div class="form-group">
+      <label>Decision</label>
+      <textarea class="form-control" required formControlName="decision"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Save</button>
+  </form>
+</div>

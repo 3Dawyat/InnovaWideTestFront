@@ -1,0 +1,25 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(formData)" [formGroup]="formData">
+    <div class="form-group">
+      <label for="Number">Number:</label>
+      <input type="number" min="0" class="form-control" required formControlName="number">
+    </div>
+    <div class="form-group">
+      <label >Name</label>
+      <input type="text" class="form-control" required formControlName="name">
+    </div>
+    <div class="form-group">
+      <label >Year</label>
+      <input type="number" min="0"  class="form-control" required formControlName="year">
+    </div>
+    <div class="form-group">
+      <label >Litigation Degree:</label>
+      <input type="text" class="form-control" required formControlName="litigationDegree">
+    </div>
+    <div class="form-group">
+      <label >Final Verdict:</label>
+      <input type="text" class="form-control" required formControlName="finalVerdict">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Save</button>
+  </form>
+</div>
