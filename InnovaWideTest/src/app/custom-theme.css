@@ -1,3 +1,13 @@
+
+:root {
+  --primary-color: #325168;
+  --secondary-color: #d05d35;
+}
+
+body.theme-dark {
+  --primary-color: #d05d35;
+}
+
 .navbar {
   background-color: var(--primary-color) !important;
 }
